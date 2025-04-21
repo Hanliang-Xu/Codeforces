@@ -1,0 +1,9 @@
+# C++ build artifacts
+*.o
+*.out
+*.exe
+*.gch
+
+# build directories
+build/
+bin/
