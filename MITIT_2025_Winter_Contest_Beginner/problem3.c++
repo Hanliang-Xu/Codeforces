@@ -31,23 +31,12 @@ int find_min_distance(const set<Point>& pointSet, const Point& first, const Poin
     int min_dist = INT_MAX;
 
     for (Point point : pointSet) {
-        cout << "We iterate to Point: x = " << point.x << ", y = " << point.y << endl;
-
         set<Point> pointSet_with_point_removed = pointSet;
         pointSet_with_point_removed.erase(point);
-
-        int dist = find_min_distance(pointSet_with_point_removed, first, point) + calculate_distance_two_points(first, point);
         
-        if (start == Point{1, 2}) {
-            cout << "DEBUG: Next we iterate to x = " << point.x << ", y = " << point.y << ", with distance = " << dist << endl;
-        }
-
+        int dist = find_min_distance(pointSet_with_point_removed, first, point) + calculate_distance_two_points(start, point);
+        
         if (dist < min_dist) {
-            if (start == first) {
-                cout << "We found the min dist of " << dist << ", it starts at the point: x = " << point.x << ", y = " << point.y << endl;
-
-            }
-            //if (start == Point{-1, 3})  cout << "The third stop is: x = " << point.x << ", y = " << point.y << ", with distance: " << dist << endl;
             min_dist = dist;
         }
     }
@@ -81,8 +70,6 @@ int main() {
         }
 
         int min_dist = find_min_distance(pointSet, first_city, first_city);
-
-        cout << "min dist is " << min_dist << endl;
 
         results[i] = min_dist;
     }
