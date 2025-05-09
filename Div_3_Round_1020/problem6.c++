@@ -13,6 +13,7 @@ bool is_zero(const vector<int>& binary_vector, int first, int second) {
     return (first == second) ? !(binary_vector[second] == 0) : (binary_vector[second] == 0);
 }
 
+
 void insert_point_to_queue(queue<pair<int, int>>& queue_for_explore, vector<vector<int>>& grid, const vector<int>& binary_vector, int first, int second, int n) {
     if (is_valid(binary_vector, first, second, n) && grid[first][second] == 0 && is_zero(binary_vector, first, second)) {
         grid[first][second] = 1;
